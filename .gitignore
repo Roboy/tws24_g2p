@@ -1,0 +1,33 @@
+# Ignore ROS build artifacts
+build/
+devel/
+logs/
+
+# Ignore all log files
+*.log
+
+# Python specific
+*.pyc
+__pycache__/
+
+# C++ specific
+*.o
+*.so
+*.a
+*.d
+
+# Ignore IDE and editor specific files
+.vscode/
+.idea/
+*.swp
+*~
+
+# Node package directories
+node_modules/
+
+# Ignore backup files
+*.bak
+
+# Other
+.DS_Store
+Thumbs.db
