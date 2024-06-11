@@ -1,0 +1,19 @@
+float32 target_angle        # The planned angle for the movement
+float32 tolerance           # Absolute tolerance for interrupting prematurely
+float32 step_duration       # Seconds per activation
+int32 max_steps             # Maximum number of steps used for the movement
+string model_name           # Name of the model to use
+---
+float32 target_angle        # Angle the movement was planned to result in
+float32 initial_angle       # Measured initial angle
+float32 result_angle        # Measured result angle
+int32 num_steps             # Number of steps used for the movement
+bool success
+string error_info
+---
+int32 step                  # Step of the entire movement
+float32 target_angle        # Angle the movement was planned to result in
+float32 initial_angle       # Measured initial angle
+float32 result_angle        # Angle the movement resulted in
+float32 flex_activation     # Flex PWM applied for the step
+float32 extend_activation   # Extend PWM applied for the step

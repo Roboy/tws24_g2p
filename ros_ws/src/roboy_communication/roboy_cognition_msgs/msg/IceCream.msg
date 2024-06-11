@@ -1,0 +1,3 @@
+string flavor
+geometry_msgs/Pose pose
+std_msgs/Float32MultiArray point_cloud

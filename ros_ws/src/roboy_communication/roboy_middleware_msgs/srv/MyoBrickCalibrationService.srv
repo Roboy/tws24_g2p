@@ -1,0 +1,11 @@
+int8 fpga
+int8 motor
+int8 degree
+int32 timeout
+uint32 number_of_data_points
+float32 min_degree
+float32 max_degree
+---
+float32[] estimated_spring_parameters
+float64[] motor_angle
+float64[] motor_encoder

@@ -1,0 +1,3 @@
+string name # e.g. folder path on FPGA
+---
+string[] items

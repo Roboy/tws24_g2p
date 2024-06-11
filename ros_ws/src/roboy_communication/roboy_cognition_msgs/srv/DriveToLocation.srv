@@ -1,0 +1,5 @@
+string destination 
+---
+int16 eta
+bool path_found
+string error_message

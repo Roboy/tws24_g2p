@@ -1,0 +1,10 @@
+# name of the endeffector
+string endeffector
+# the frame of the fk target
+string frame
+# joint names with corresponding joint angles,
+# joints that are not defined will be used from the current state of the robot
+string[] joint_names
+float64[] angles
+---
+geometry_msgs/Pose pose

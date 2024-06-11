@@ -1,0 +1,8 @@
+(cl:in-package bench_pkg-srv)
+(cl:export '(DESIRED_ANGLE-VAL
+          DESIRED_ANGLE
+          DESIRED_ANGULAR_VELOCITY-VAL
+          DESIRED_ANGULAR_VELOCITY
+          DESIRED_ANGULAR_ACCELERATION-VAL
+          DESIRED_ANGULAR_ACCELERATION
+))

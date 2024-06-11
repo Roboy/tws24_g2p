@@ -1,0 +1,4 @@
+bool all
+int8[] id_list
+---
+ControllerState[] states

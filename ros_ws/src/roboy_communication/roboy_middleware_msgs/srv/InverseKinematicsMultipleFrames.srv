@@ -1,0 +1,16 @@
+# names of the endeffectors
+string endeffector
+# 0: position and orientation 1: position only 2: orientation only
+int8 type
+# the frames of the ik targets
+string[] target_frames
+# target position/orientation for frame in world coordinates (if applicable)
+geometry_msgs/Pose[] poses
+# position weights of the ik targets
+int8[] weights
+
+---
+# joint names
+string[] joint_names
+# these are the resulting joint angles from inverse kinematics in radians
+float64[] angles

@@ -1,0 +1,10 @@
+# for which endeffektor
+string endeffektor
+# available types
+# 0: Setpoint Joint Configuration (number of target positions has to match number of dofs of endeffector)
+# 1: SetPoint Endeffector Position ( 3D position )
+# 2: SetPoint Endeffector Pose ( 3D Position plus Quaternion Pose = 7 entries in target)
+uint8 type
+float32[] target
+---
+string error

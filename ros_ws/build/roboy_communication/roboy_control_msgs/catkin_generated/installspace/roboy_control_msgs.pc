@@ -1,0 +1,8 @@
+prefix=/workspace/ros_ws/install
+
+Name: roboy_control_msgs
+Description: Description of roboy_control_msgs
+Version: 1.0.3
+Cflags: -I${prefix}/include
+Libs: -L${prefix}/lib 
+Requires: roscpp message_runtime message_generation actionlib_msgs

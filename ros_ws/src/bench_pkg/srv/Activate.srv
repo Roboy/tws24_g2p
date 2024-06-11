@@ -1,0 +1,7 @@
+float32 flex_myobrick_pwm
+float32 extend_myobrick_pwm
+float32 duration
+---
+float32 current_angle
+float32 current_angular_velocity
+float32 current_angular_acceleration

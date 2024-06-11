@@ -1,0 +1,10 @@
+int32[] update_frequency
+uint8[] global_id
+uint8[] control_mode
+float32[] PWMLimit
+int32[] IntegralLimit
+int32[] Kp
+int32[] Ki
+int32[] Kd
+int32[] deadband
+float32[] setpoint

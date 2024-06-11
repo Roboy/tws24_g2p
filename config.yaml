@@ -1,0 +1,69 @@
+# General Parameters
+fpga_ip: 192.168.1.100
+fpga_password: Roboy2016
+host_ip: 192.168.1.19
+image_name: thesis_image
+ros_ip: 192.168.1.19
+ros_master_uri: http://192.168.1.19:11311
+script_dir: /home/marcel/tws24_g2p
+wifi_name: roboy
+
+# Controller Parameters
+controller: g2p                             # Choose pid or g2p. When g2p is selected, the model_name parameter must be set
+mode: execute                                 # Choose execute, train, p2p, sinusoidal (execute: run the trained model or the pid controller, train: train the g2p model with below parameters, p2p: point to point experiment, sinusoidal: sinusoidal experiment)
+dynamics: angle_only                        # Choose angle_only or kinematic to be used as input for the controller and for training the model
+accuracy_threshold: 1.0                     # The accuracy threshold for the controller in degrees
+gamepad_name: Logitech\ Logitech\ RumblePad\ 2\ USB  # Name of the gamepad. Run evtest to find the name of the gamepad and escape the spaces with a backslash
+flex_myobrick_global_id: 23                 # The global ID of the flex MyoBrick
+extend_myobrick_global_id: 24               # The global ID of the extend MyoBrick
+control_loop_rate: 0.1                      # The control loop rate in seconds
+joystick_range: 255                         # Number of discrete values of the joystick
+input: gamepad                              # Choose between gamepad or terminal as input source
+
+# PID Parameters
+kp: 0.4                                     # The PID Proportional Gain
+ki: 0.07                                    # The PID Integral Gain
+kd: 0.1                                     # The PID Derivative Gain
+integral_limit: 30.0                        # The integral limit for the PID controller
+
+# G2P Parameters
+model_name: model6                          # The name of the model to be trained or executed
+architecture: optimized                      # Choose between original and optimized mlp architecture
+babbling_seconds: 1800                        # The duration of the babbling phase in seconds
+activation_generation_steps: 0.5            # The step size for the random activation generation
+babbling_version: optimized                  # Choose between "original" and "optimized" babbling implementation
+pass_chance: 0.2                            # The chance that the random action is forwarded to the motors
+max_pwm: 10.0                               # The maximum PWM value used for original babbling
+min_pwm: -1.0                               # The minimum PWM value used for original babbling
+min_spool_in_pwm: 2.0                       # The minimum PWM value that spools in the muscle
+non_active_pwm: -1.0                        # The PWM value that reduces the resistance of the muscle but not spooling it in thus not contributing to the movement
+percentage_hold: 0.2                        # The percentage of the time the muscles are both at 3 PWM to hold the position
+percentage_activate_flex: 0.4               # The percentage of the time the flex muscle is activated during babbling
+percentage_activate_extend: 0.4             # The percentage of the time the extend muscle is activated during babbling
+num_refinement_kinematics: 1                # Number of different random kinematics used to refine the model
+num_trials_phase_1: 10                       # Number of trials to try to surpass the reward threshold
+num_trials_phase_2: 10                       # Number of iterations applying Multi-variant Gaussian Distribution based Stochastic Search
+reward_threshold: -500.0              # The reward threshold to surpass in order to move to the next phase
+phase_1_approach: original                  # Approach for Refinement Phase 1: "original" or "optimized"
+phase_1_variation_threshold: 0.5            # The threshold for the variation in the activation to determine if flex and extend are close to each (meant to hold position) other or not
+a: -0.1                                     # The lower bound for the activation variation in Refinement Phase 1
+b: 0.1                                      # The upper bound for the activation variation in Refinement Phase 1
+sigma: 0.3                                  # Standard deviation of the Gaussian distribution during Refinement Phase 2
+
+# P2P Parameters
+start_angle_p2p: 60.0                       # The start angle for the point to point experiment
+end_angle_p2p: 160.0                        # The end angle for the point to point experiment
+num_points: 10                              # Number of equidistant points between the start and end angle
+max_move_time: 10.0                         # The maximum time in seconds to move to the next point
+
+# Sinusoidal Parameters
+num_periods: 3.0                            # The number of periods for the sinusoidal movement
+start_angle_sin: 115.0                      # The start angle for the sinusoidal experiment
+amplitude_deg: 30.0                         # The amplitude of the sinusoidal movement in degrees
+periode_sec: 5.0                            # The period of the sinusoidal movement in seconds
+
+# Safety Parameters
+max_angle: 180                              # The maximum angle allowed   
+min_angle: 50                               # The minimum angle allowed
+pwm_limit: 30.0                             # The maximum PWM value allowed
+torque_limit: 42                            # What is the sense of life :-) This is not used in the current implementation as the torque is not measured reliably

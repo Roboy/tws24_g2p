@@ -1,0 +1,2 @@
+set(bench_pkg_MESSAGE_FILES "")
+set(bench_pkg_SERVICE_FILES "/workspace/ros_ws/src/bench_pkg/srv/Activate.srv;/workspace/ros_ws/src/bench_pkg/srv/Babble.srv;/workspace/ros_ws/src/bench_pkg/srv/DesiredKinematicsInput.srv;/workspace/ros_ws/src/bench_pkg/srv/GetCurrentKinematics.srv;/workspace/ros_ws/src/bench_pkg/srv/Move.srv;/workspace/ros_ws/src/bench_pkg/srv/Refine.srv;/workspace/ros_ws/src/bench_pkg/srv/SetPWM.srv")

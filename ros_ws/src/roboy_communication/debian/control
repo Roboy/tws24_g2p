@@ -1,0 +1,12 @@
+Source: ros-melodic-roboy-msgs
+Section: misc
+Priority: extra
+Maintainer: Alona Kharchenko <unicorn@roboy.org>
+Build-Depends: debhelper (>= 9.0.0), ros-melodic-moveit-msgs
+Homepage: http://github.com/Roboy/Roboy
+Standards-Version: 3.9.7
+
+Package: ros-melodic-roboy-msgs
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ros-melodic-moveit-msgs
+Description: roboy_communication for ROS melodic

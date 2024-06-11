@@ -1,0 +1,5 @@
+
+---
+float32 current_angle
+float32 current_angular_velocity
+float32 current_angular_acceleration

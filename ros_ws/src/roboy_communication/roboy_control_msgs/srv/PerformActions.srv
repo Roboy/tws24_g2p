@@ -1,0 +1,3 @@
+string[] actions # can be a trajectory name or pause (2_pause will pause for 2 seconds)
+---
+bool success

@@ -1,0 +1,4 @@
+string text_input
+---
+bool result
+string text_output

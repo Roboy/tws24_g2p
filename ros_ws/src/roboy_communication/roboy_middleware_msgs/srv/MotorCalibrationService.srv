@@ -1,0 +1,11 @@
+int32 fpga
+int32 motor
+int32 degree
+int32 timeout
+int32 number_of_data_points
+int32 displacement_min
+int32 displacement_max
+---
+float32[] estimated_spring_parameters
+float64[] load
+float64[] displacement

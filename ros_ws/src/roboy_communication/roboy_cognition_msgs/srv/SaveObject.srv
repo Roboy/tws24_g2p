@@ -1,0 +1,7 @@
+string class_name
+int32 id
+string properties
+string values
+---
+bool result
+string instance

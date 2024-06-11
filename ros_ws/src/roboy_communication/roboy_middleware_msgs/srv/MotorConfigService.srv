@@ -1,0 +1,4 @@
+bool legacy
+MotorConfig config
+---
+int32[] mode

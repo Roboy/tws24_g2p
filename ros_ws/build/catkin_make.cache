@@ -1,0 +1,2 @@
+bench_pkg:roboy_communication/roboy_cognition_msgs:roboy_communication/roboy_control_msgs:roboy_communication/roboy_middleware_msgs:roboy_communication/roboy_simulation_msgs
+-DCATKIN_DEVEL_PREFIX=/workspace/ros_ws/devel -DCMAKE_INSTALL_PREFIX=/workspace/ros_ws/install -G Unix Makefiles

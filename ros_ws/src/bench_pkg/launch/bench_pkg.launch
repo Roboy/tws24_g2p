@@ -1,0 +1,89 @@
+<?xml version="1.0"?>
+<launch>
+
+    <!-- Control Parameters -->
+    <param name="controller" value="$(arg controller)" type="str"/>
+    <param name="mode" value="$(arg mode)" type="str"/>
+    <param name="dynamics" value="$(arg dynamics)" type="str"/>
+    <param name="accuracy_threshold" value="$(arg accuracy_threshold)" type="double"/>
+    <param name="gamepad_name" value="$(arg gamepad_name)" type="str"/>
+    <param name="flex_myobrick_global_id" value="$(arg flex_myobrick_global_id)" type="int"/>
+    <param name="extend_myobrick_global_id" value="$(arg extend_myobrick_global_id)" type="int"/>
+    <param name="control_loop_rate" value="$(arg control_loop_rate)" type="double"/>
+    <param name="joystick_range" value="$(arg joystick_range)" type="int"/>
+    <param name="input" value="$(arg input)" type="str"/>
+
+    <!-- PID Parameters -->
+    <param name="kp" value="$(arg kp)" type="double"/>
+    <param name="ki" value="$(arg ki)" type="double"/>
+    <param name="kd" value="$(arg kd)" type="double"/>
+    <param name="integral_limit" value="$(arg integral_limit)" type="double"/>
+
+    <!-- G2P Parameters -->
+    <param name="model_name" value="$(arg model_name)" type="str"/>
+    <param name="architecture" value="$(arg architecture)" type="str"/>
+    <param name="babbling_seconds" value="$(arg babbling_seconds)" type="double"/>
+    <param name="activation_generation_steps" value="$(arg activation_generation_steps)" type="double"/>
+    <param name="babbling_version" value="$(arg babbling_version)" type="str"/>
+    <param name="pass_chance" value="$(arg pass_chance)" type="double"/>
+    <param name="max_pwm" value="$(arg max_pwm)" type="double"/>
+    <param name="min_pwm" value="$(arg min_pwm)" type="double"/>
+    <param name="min_spool_in_pwm" value="$(arg min_spool_in_pwm)" type="double"/>
+    <param name="non_active_pwm" value="$(arg non_active_pwm)" type="double"/>
+    <param name="percentage_hold" value="$(arg percentage_hold)" type="double"/>
+    <param name="percentage_activate_flex" value="$(arg percentage_activate_flex)" type="double"/>
+    <param name="percentage_activate_extend" value="$(arg percentage_activate_extend)" type="double"/>
+    <param name="num_refinement_kinematics" value="$(arg num_refinement_kinematics)" type="int"/>
+    <param name="num_trials_phase_1" value="$(arg num_trials_phase_1)" type="int"/>
+    <param name="num_trials_phase_2" value="$(arg num_trials_phase_2)" type="int"/>
+    <param name="reward_threshold" value="$(arg reward_threshold)" type="double"/>
+    <param name="phase_1_approach" value="$(arg phase_1_approach)" type="str"/>
+    <param name="phase_1_variation_threshold" value="$(arg phase_1_variation_threshold)" type="double"/>
+    <param name="a" value="$(arg a)" type="double"/>
+    <param name="b" value="$(arg b)" type="double"/>
+    <param name="sigma" value="$(arg sigma)" type="double"/>
+
+    <!-- Experiment Parameters -->
+    <param name="start_angle_p2p" value="$(arg start_angle_p2p)" type="double"/>
+    <param name="end_angle_p2p" value="$(arg end_angle_p2p)" type="double"/>
+    <param name="num_points" value="$(arg num_points)" type="int"/>
+    <param name="max_move_time" value="$(arg max_move_time)" type="double"/>
+    <param name="num_periods" value="$(arg num_periods)" type="double"/>
+    <param name="start_angle_sin" value="$(arg start_angle_sin)" type="double"/>
+    <param name="amplitude_deg" value="$(arg amplitude_deg)" type="double"/>
+    <param name="periode_sec" value="$(arg periode_sec)" type="double"/>
+
+    <!-- Safety Parameters -->
+    <param name="max_angle" value="$(arg max_angle)" type="double"/>
+    <param name="min_angle" value="$(arg min_angle)" type="double"/>
+    <param name="pwm_limit" value="$(arg pwm_limit)" type="double"/>
+    <param name="torque_limit" value="$(arg torque_limit)" type="double"/>
+
+    <!-- Nodes -->
+    <node pkg="bench_pkg" type="bench_interface.py" name="bench_interface" output = "screen"/>
+
+    <node pkg="bench_pkg" type="movement_handler.py" name="movement_handler" output = "screen"/>
+
+    <!-- Conditionally launch PID or G2P controller node if mode is execute, p2p or sinusoidal -->
+    <group if="$(eval arg('mode') == 'execute' or arg('mode') == 'p2p' or arg('mode') == 'sinusoidal')">
+        <group if="$(eval arg('controller') == 'pid')">
+            <node pkg="bench_pkg" type="pid_controller.py" name="pid_controller" output="screen"/>
+        </group>
+
+        <group if="$(eval arg('controller') == 'g2p')">
+            <node pkg="bench_pkg" type="g2p_controller.py" name="g2p_controller" output="screen"/>
+        </group>
+    </group>
+
+    <!-- Conditionally launch gamepad or terminal input node -->
+    <group if="$(eval arg('input') == 'gamepad')">
+        <node pkg="bench_pkg" type="gamepad.py" name="gamepad" output="screen"/>
+    </group>
+
+    <group if="$(eval arg('input') == 'terminal')">
+        <node pkg="bench_pkg" type="terminal.py" name="terminal" output="screen"/>
+    </group>
+
+    <node pkg="bench_pkg" type="control_loop.py" name="control_loop" output = "screen"/>
+    
+</launch>

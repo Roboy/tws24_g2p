@@ -1,0 +1,5 @@
+string filepath
+float64[] timestamps
+string[] emotions
+---
+bool success

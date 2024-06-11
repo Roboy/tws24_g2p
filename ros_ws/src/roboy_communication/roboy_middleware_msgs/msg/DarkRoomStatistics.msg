@@ -1,0 +1,4 @@
+string object_name
+int32 lighthouse
+float32[] update_frequency_horizontal
+float32[] update_frequency_vertical

@@ -1,0 +1,14 @@
+# luigi sends ice cream order
+# number of scoops at position i corresponds to flavor at position i
+string[] flavors
+int32[] scoops
+---
+# success is send when scooping is finished
+# if scooping did not succeed, success is false and an error message should be replied
+bool success 
+string error_message
+---
+# for every finished scoop, feedback is supplied in form of another boolean that is appended to finished_scoops
+# status messages can be "more time" 
+bool[] finished_scoops 
+string status_message

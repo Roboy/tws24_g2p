@@ -1,0 +1,7 @@
+int8 controller #position, vel or displacement
+float64[] set_points
+float64 step_size
+---
+float64[] q
+float64[] qdot
+bool feasible

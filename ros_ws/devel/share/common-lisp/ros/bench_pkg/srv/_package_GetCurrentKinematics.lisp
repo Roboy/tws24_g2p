@@ -1,0 +1,8 @@
+(cl:in-package bench_pkg-srv)
+(cl:export '(CURRENT_ANGLE-VAL
+          CURRENT_ANGLE
+          CURRENT_ANGULAR_VELOCITY-VAL
+          CURRENT_ANGULAR_VELOCITY
+          CURRENT_ANGULAR_ACCELERATION-VAL
+          CURRENT_ANGULAR_ACCELERATION
+))

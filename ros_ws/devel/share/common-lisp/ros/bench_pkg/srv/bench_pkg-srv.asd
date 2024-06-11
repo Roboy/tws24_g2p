@@ -1,0 +1,21 @@
+
+(cl:in-package :asdf)
+
+(defsystem "bench_pkg-srv"
+  :depends-on (:roslisp-msg-protocol :roslisp-utils )
+  :components ((:file "_package")
+    (:file "Activate" :depends-on ("_package_Activate"))
+    (:file "_package_Activate" :depends-on ("_package"))
+    (:file "Babble" :depends-on ("_package_Babble"))
+    (:file "_package_Babble" :depends-on ("_package"))
+    (:file "DesiredKinematicsInput" :depends-on ("_package_DesiredKinematicsInput"))
+    (:file "_package_DesiredKinematicsInput" :depends-on ("_package"))
+    (:file "GetCurrentKinematics" :depends-on ("_package_GetCurrentKinematics"))
+    (:file "_package_GetCurrentKinematics" :depends-on ("_package"))
+    (:file "Move" :depends-on ("_package_Move"))
+    (:file "_package_Move" :depends-on ("_package"))
+    (:file "Refine" :depends-on ("_package_Refine"))
+    (:file "_package_Refine" :depends-on ("_package"))
+    (:file "SetPWM" :depends-on ("_package_SetPWM"))
+    (:file "_package_SetPWM" :depends-on ("_package"))
+  ))

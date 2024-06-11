@@ -1,0 +1,4 @@
+string sentence
+---
+string intent
+float32 distance

@@ -1,0 +1,8 @@
+prefix=/workspace/ros_ws/devel
+
+Name: roboy_middleware_msgs
+Description: Description of roboy_middleware_msgs
+Version: 1.0.0
+Cflags: -I/workspace/ros_ws/devel/include
+Libs: -L${prefix}/lib 
+Requires: roscpp message_runtime message_generation

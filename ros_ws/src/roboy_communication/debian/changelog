@@ -1,0 +1,5 @@
+ros-melodic-roboy-msgs (2.0.0-1) bionic; urgency=low
+
+  * roboy_communication for ROS melodic
+
+ -- Alona Kharchenko <unicorn@roboy.org>  Sat, 20 May 2017 13:39:27 +0200
